@@ -70,7 +70,7 @@ public function share(Request $request): array
 
 ## 🔐 Jetstream Integration (with Turnstile Middleware)
 
-To apply Cloudflare Turnstile validation to Jetstream login and password routes, override the default auth routes in `routes/web.php`.
+To apply Cloudflare Turnstile validation to Jetstream login and password routes, override the default auth routes importing the Jetstream controllers directly from vendor (do not create new ones) in `routes/web.php`.
 
 ```php
 // Override Jetstream login routes to include 'turnstile' middleware
@@ -91,7 +91,7 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->name('password.update');
 ```
 
-> For a full explanation of *why* this override is needed, read this article:  
+> For a full explanation of *why* this override is needed, this way we dont break jetstream or need to maintain our own auth controllers direct from vendor read this article:  
 > **[Integrating Cloudflare Turnstile CAPTCHA with Laravel Jetstream](https://www.linkedin.com/pulse/integrating-cloudflare-turnstile-captcha-laravel-jetstream-wright-fbdaf?utm_source=share&utm_medium=member_ios&utm_campaign=share_via)** by **Delaney Wright**
 
 ---
