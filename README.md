@@ -124,6 +124,66 @@ const captchaToken = ref('')
 
 ---
 
+### Jetstream Login Example
+
+```vue
+<script setup lang="ts">
+import { useForm, usePage } from '@inertiajs/vue3'
+import { ref, watch } from 'vue'
+
+const captchaToken = ref('')
+const form = useForm({
+  email: '',
+  password: '',
+  remember: false,
+})
+
+const submit = () => {
+  form
+    .transform(data => ({
+      ...data,
+      'cf-turnstile-response': captchaToken.value,
+      remember: form.remember ? 'on' : '',
+    }))
+    .post(route('login'), {
+      onFinish: () => {
+        form.reset('password')
+        captchaToken.value = ''
+      },
+      onError: () => {
+        captchaToken.value = ''
+      },
+    })
+}
+
+// Optional: refresh if user isn't verified
+const page = usePage()
+watch(() => page.props.status, (status) => {
+  if (
+    status &&
+    typeof status === 'string' &&
+    status.includes("We couldn't verify if you're human")
+  ) {
+    window.location.reload()
+  }
+})
+</script>
+
+<template>
+  <form @submit.prevent="submit">
+    <!-- Email, password, remember fields -->
+    <TurnstileWidget
+      v-model="captchaToken"
+      :sitekey="$page.props.turnstile_site_key"
+      theme="dark"
+    />
+    <button type="submit">Log in</button>
+  </form>
+</template>
+```
+
+---
+
 ## 🔐 Props
 
 | Prop               | Type      | Default   | Description |
