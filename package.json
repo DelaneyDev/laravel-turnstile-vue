@@ -1,0 +1,48 @@
+{
+  "name": "@delaneydev/laravel-turnstile-vue",
+  "version": "1.0.0",
+  "description": "A Vue 3 component wrapper for Cloudflare Turnstile, designed for use with Laravel apps.",
+  "author": "Delaney Dev <you@example.com>",
+  "license": "MIT",
+  "main": "dist/laravel-turnstile-vue.umd.js",
+  "module": "dist/laravel-turnstile-vue.es.js",
+  "types": "index.ts",
+  "files": [
+    "dist",
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "vue",
+    "turnstile",
+    "cloudflare",
+    "laravel",
+    "captcha",
+    "component",
+    "vue3"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.6",
+    "vue-tsc": "^2.2.8"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DelaneyDev/laravel-turnstile-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DelaneyDev/laravel-turnstile-vue/issues"
+  },
+  "homepage": "https://github.com/DelaneyDev/laravel-turnstile-vue#readme"
+}
