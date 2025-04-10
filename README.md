@@ -66,7 +66,33 @@ public function share(Request $request): array
 }
 ```
 
-Now it's accessible as `$page.props.turnstile_site_key` in Vue.
+---
+
+## 🔐 Jetstream Integration (with Turnstile Middleware)
+
+To apply Cloudflare Turnstile validation to Jetstream login and password routes, override the default auth routes in `routes/web.php`.
+
+```php
+// Override Jetstream login routes to include 'turnstile' middleware
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\NewPasswordController;
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware(['guest', 'turnstile'])
+    ->name('login');
+
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    ->middleware(['guest', 'turnstile'])
+    ->name('password.email');
+
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware(['guest', 'turnstile'])
+    ->name('password.update');
+```
+
+> For a full explanation of *why* this override is needed, read this article:  
+> **[Integrating Cloudflare Turnstile CAPTCHA with Laravel Jetstream](https://www.linkedin.com/pulse/integrating-cloudflare-turnstile-captcha-laravel-jetstream-wright-fbdaf?utm_source=share&utm_medium=member_ios&utm_campaign=share_via)** by **Delaney Wright**
 
 ---
 
@@ -156,7 +182,6 @@ const submit = () => {
     })
 }
 
-// Optional: refresh if user isn't verified
 const page = usePage()
 watch(() => page.props.status, (status) => {
   if (
