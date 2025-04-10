@@ -181,17 +181,6 @@ const submit = () => {
       },
     })
 }
-
-const page = usePage()
-watch(() => page.props.status, (status) => {
-  if (
-    status &&
-    typeof status === 'string' &&
-    status.includes("We couldn't verify if you're human")
-  ) {
-    window.location.reload()
-  }
-})
 </script>
 
 <template>
