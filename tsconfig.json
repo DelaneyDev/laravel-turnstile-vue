@@ -1,14 +1,15 @@
 {
-     "compilerOptions": {
-      "target": "ESNext",
-      "module": "ESNext",
-      "moduleResolution": "Node",
-      "strict": true,
-      "jsx": "preserve",
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "types": ["vite/client"]
-     },
-     "include": ["src", "index.ts"]
-    }
-    
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["vite/client"],
+    "declaration": true,
+    "declarationDir": "dist"
+  },
+  "include": ["src", "index.ts"]
+}

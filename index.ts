@@ -1,3 +1,4 @@
-import TurnstileWidget from './src/TurnstileWidget.vue'
+import TurnstileWidget from './src/TurnstileWidget.vue';
 
-export { TurnstileWidget }
+export { TurnstileWidget };
+export default TurnstileWidget;
