@@ -115,6 +115,7 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
-    <!-- Render container only after client-side hydration -->
+    <!-- Render container only after client-side hydration with fallback -->
     <div v-if="hydrated" ref="containerRef" />
+    <div v-else style="min-height:48px" aria-hidden="true"></div>
 </template>
