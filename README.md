@@ -129,6 +129,14 @@ public function store(Request $request)
 
 ---
 
+### Vite Setup
+Make sure to add this to your vite.config.js
+```js
+  ssr: {
+    noExternal: ['@delaneydev/laravel-turnstile-vue'],
+  },
+```
+
 ## 💻 Frontend Usage
 
 ### Inertia Example
