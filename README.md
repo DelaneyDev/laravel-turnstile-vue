@@ -129,7 +129,7 @@ public function store(Request $request)
 
 ---
 
-### Vite Setup
+### ⚡ Vite Setup
 Make sure to add this to your vite.config.js
 ```js
   ssr: {
