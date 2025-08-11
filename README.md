@@ -14,7 +14,7 @@
 - 🔒 `v-model` for reactive token binding
 - 🧩 Exposes `reset()` and `execute()` methods
 - 🧠 Designed to work with Laravel & Vue (Supports any Vue framework ignore laravel steps)
-- ⚙️ Server-side validation handled via [`njoguamos/laravel-turnstile`](https://github.com/njoguamos/laravel-turnstile)
+- ⚙️ Server-side validation laravel handled via [`njoguamos/laravel-turnstile`](https://github.com/njoguamos/laravel-turnstile) or build your own.
 
 ---
 
