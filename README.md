@@ -13,7 +13,7 @@
 - 🔁 Auto-reset on error/expired (optional)
 - 🔒 `v-model` for reactive token binding
 - 🧩 Exposes `reset()` and `execute()` methods
-- 🧠 Designed to work with Laravel (Inertia, Blade, Livewire)
+- 🧠 Designed to work with Laravel & Vue (Supports any Vue framework ignore laravel steps)
 - ⚙️ Server-side validation handled via [`njoguamos/laravel-turnstile`](https://github.com/njoguamos/laravel-turnstile)
 
 ---
