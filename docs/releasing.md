@@ -17,6 +17,10 @@ The repository must remain public for npm provenance. In npm publishing access, 
 two-factor authentication and disallow traditional write tokens after the OIDC flow has
 been proven.
 
+Keep `repository.url` in `package.json` as the exact GitHub HTTPS repository URL. The
+OIDC-only workflow must not set `registry-url` in `actions/setup-node`, which would create
+token-oriented npm configuration before trusted publishing runs.
+
 In GitHub, protect the `npm` environment with required maintainer approval and protect
 release tags. The publish workflow uses a GitHub-hosted runner, Node 24, npm 11, and the
 required `id-token: write` permission. It does not use `NPM_TOKEN`.

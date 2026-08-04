@@ -23,11 +23,12 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
           package-manager-cache: false
 
       - name: Use an OIDC-capable npm CLI
-        run: npm install --global npm@11
+        run: |
+          npm install --global npm@11
+          npm --version
 
       - name: Verify release tag
         run: node scripts/verify-release.mjs
@@ -41,4 +42,4 @@ jobs:
         run: npm run check
 
       - name: Publish with trusted publishing
-        run: npm publish
+        run: npm publish --access public --loglevel verbose
