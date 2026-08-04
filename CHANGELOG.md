@@ -4,7 +4,7 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
-## [2.0.0] - Unreleased
+## [2.0.0] - 2026-08-04
 
 ### Added
 
@@ -46,5 +46,5 @@ All notable changes to this project are documented here. The format follows
 
 - Previous stable version 1 release.
 
-[2.0.0]: https://github.com/DelaneyDev/laravel-turnstile-vue/compare/v1.0.4...HEAD
+[2.0.0]: https://github.com/DelaneyDev/laravel-turnstile-vue/compare/4c83df916d25666508b27fc958b34f6da2ab7eff...v2.0.0
 [1.0.4]: https://www.npmjs.com/package/@delaneydev/laravel-turnstile-vue/v/1.0.4
