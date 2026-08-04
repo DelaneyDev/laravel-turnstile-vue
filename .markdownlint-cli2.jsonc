@@ -1,0 +1,21 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": {
+      "siblings_only": true,
+    },
+    "MD033": {
+      "allowed_elements": ["a", "img", "p"],
+    },
+  },
+  "globs": ["*.md", "docs/**/*.md"],
+  "ignores": [
+    "AGENTS.md",
+    ".codex/**",
+    ".playwright-mcp/**",
+    ".serena/**",
+    "coverage/**",
+    "node_modules/**",
+  ],
+}

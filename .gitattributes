@@ -1,2 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Auto-detect text files and keep repository/package output consistent.
+* text=auto eol=lf

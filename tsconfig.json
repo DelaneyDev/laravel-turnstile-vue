@@ -1,15 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@package": ["./index.ts"]
+    },
     "strict": true,
-    "jsx": "preserve",
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["vite/client"],
-    "declaration": true,
-    "declarationDir": "dist"
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vite/client", "vitest/globals"]
   },
-  "include": ["src", "index.ts"]
+  "include": [
+    "index.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "e2e/**/*.ts",
+    "playground/**/*.ts",
+    "playground/**/*.vue",
+    "*.config.ts"
+  ]
 }

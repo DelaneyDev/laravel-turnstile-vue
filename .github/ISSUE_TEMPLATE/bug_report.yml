@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a reproducible package defect
+title: '[Bug]: '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include Turnstile secrets, response tokens, session cookies, or personal data.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 2.0.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Vue, Vite, Node, browser, and framework versions
+    validations:
+      required: true
+  - type: dropdown
+    id: rendering
+    attributes:
+      label: Rendering mode
+      options:
+        - Client only
+        - SSR with default externalization
+        - SSR with noExternal
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Link to a repository or include the smallest component and configuration that reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include package error kind, Cloudflare error code, and stack trace where available.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I removed all secrets and response tokens.
+          required: true
+        - label: I tested the latest package version.
+          required: true

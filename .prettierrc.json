@@ -1,0 +1,23 @@
+{
+  "htmlWhitespaceSensitivity": "css",
+  "printWidth": 90,
+  "semi": true,
+  "singleAttributePerLine": false,
+  "singleQuote": true,
+  "tabWidth": 4,
+  "overrides": [
+    {
+      "files": ["*.json", "*.jsonc", "*.yml", "*.yaml"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "preserve",
+        "tabWidth": 2
+      }
+    }
+  ]
+}

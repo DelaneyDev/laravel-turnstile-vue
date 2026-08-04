@@ -1,41 +1,96 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@delaneydev/laravel-turnstile-vue",
-  "version": "1.0.4",
-  "description": "A Vue 3 component wrapper for Cloudflare Turnstile, designed for use with Laravel apps.",
-  "author": "Delaney Dev <you@example.com>",
+  "version": "2.0.0",
+  "description": "A production-ready, SSR-safe Cloudflare Turnstile component for Vue 3.",
+  "type": "module",
+  "author": "DelaneyDev",
   "license": "MIT",
-  "main": "dist/laravel-turnstile-vue.umd.js",
-  "module": "dist/laravel-turnstile-vue.es.js",
-  "types": "index.ts",
+  "main": "./dist/laravel-turnstile-vue.umd.cjs",
+  "module": "./dist/laravel-turnstile-vue.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/laravel-turnstile-vue.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/laravel-turnstile-vue.umd.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
-    "src",
-    "index.ts"
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "SECURITY.md"
   ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "keywords": [
-    "vue",
-    "turnstile",
     "cloudflare",
-    "laravel",
+    "turnstile",
+    "vue",
+    "vue3",
+    "typescript",
+    "ssr",
     "captcha",
-    "component",
-    "vue3"
+    "laravel",
+    "inertia",
+    "nuxt"
   ],
   "scripts": {
+    "dev": "vite --config playground/vite.config.ts",
     "build": "vite build",
-    "type-check": "vue-tsc --noEmit"
-  },
-  "dependencies": {
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
-    "typescript": "^5.8.3",
-    "vite": "^6.2.6",
-    "vue-tsc": "^2.2.8"
+    "type-check": "vue-tsc -p tsconfig.json --noEmit",
+    "lint": "eslint . && markdownlint-cli2",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:package": "npm run build && node scripts/verify-package.mjs",
+    "check:package": "publint && attw --pack .",
+    "audit": "npm audit --audit-level=high",
+    "check": "npm run lint && npm run format:check && npm run type-check && npm run audit && npm run test:coverage && npm run test:package && npm run check:package",
+    "prepack": "npm run build"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@eslint/js": "^10.0.1",
+    "@microsoft/api-extractor": "^7.58.12",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/coverage-v8": "^4.1.10",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "@vue/server-renderer": "^3.5.40",
+    "@vue/test-utils": "^2.4.11",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.9.0",
+    "happy-dom": "^20.11.1",
+    "markdownlint-cli2": "^0.23.2",
+    "prettier": "^3.9.6",
+    "publint": "^0.3.23",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.66.0",
+    "unplugin-dts": "^1.0.3",
+    "vite": "^8.2.0",
+    "vitest": "^4.1.10",
+    "vue": "^3.5.40",
+    "vue-tsc": "^3.3.9"
   },
   "repository": {
     "type": "git",
@@ -44,5 +99,9 @@
   "bugs": {
     "url": "https://github.com/DelaneyDev/laravel-turnstile-vue/issues"
   },
-  "homepage": "https://github.com/DelaneyDev/laravel-turnstile-vue#readme"
+  "homepage": "https://github.com/DelaneyDev/laravel-turnstile-vue#readme",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }

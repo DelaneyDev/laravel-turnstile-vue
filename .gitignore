@@ -3,12 +3,21 @@ node_modules/
 
 # Build output
 dist/
+coverage/
+playwright-report/
+test-results/
+*.tgz
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
 
 # TypeScript
 *.tsbuildinfo
@@ -20,5 +29,9 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
-# Optional test / demo playground
-playground/
+# Local Codex / MCP development files
+/AGENTS.md
+/.codex/
+/.serena/
+/.playwright-mcp/
+/.mcp.json

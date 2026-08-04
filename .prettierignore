@@ -1,0 +1,10 @@
+dist
+**/dist
+coverage
+node_modules
+playwright-report
+test-results
+.codex
+.serena
+.playwright-mcp
+package-lock.json
